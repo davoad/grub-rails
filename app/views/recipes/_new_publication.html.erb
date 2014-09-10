@@ -1,0 +1,6 @@
+<div>
+  <h2>New publication</h2>
+  <%= simple_fields_for :publication do |p| %>
+    <%= render 'publications/form_fields', f: p %>
+  <% end %>
+</div>

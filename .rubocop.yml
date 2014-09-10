@@ -1,0 +1,23 @@
+Documentation:
+  Enabled: false
+
+TrailingBlankLines:
+  Enabled: false
+
+EmptyLinesAroundBody:
+  Enabled: false
+
+Style/MethodName:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - Rakefile
+    - bin/*
+    - db/**/*
+    - db/*
+    - config/**/*
+    - config/*
+    - script/**/*
+    - spec/**/*
+    - jenkins/*
