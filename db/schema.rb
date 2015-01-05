@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825091259) do
+ActiveRecord::Schema.define(version: 20140825091251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "publications", force: true do |t|
+  create_table "publications", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "author"
     t.string   "edition"
@@ -24,16 +24,12 @@ ActiveRecord::Schema.define(version: 20140825091259) do
     t.datetime "updated_at"
   end
 
-  create_table "recipes", force: true do |t|
-    t.string   "name",           null: false
+  create_table "recipes", force: :cascade do |t|
+    t.string   "name",                        null: false
     t.integer  "page_number"
     t.integer  "publication_id"
     t.integer  "website_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "websites", force: true do |t|
+    t.text     "tags",           default: [],              array: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

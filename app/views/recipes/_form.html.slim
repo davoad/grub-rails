@@ -1,0 +1,13 @@
+= simple_form_for(@recipe, html: { class: 'form-vertical' }, wrapper: :vertical_form) do |f|
+  = f.error_notification
+
+  #new_recipe_inputs.form-inputs
+    = f.input :name
+    #publication
+      #publication_from_list
+        = f.association :publication, collection: Publication.order(:name), prompt: 'Choose an existing publication'
+      = link_to_add_association 'add a new new publication', f, :publication
+    = f.input :page_number
+    = f.input :tag_list
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

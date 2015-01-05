@@ -5,6 +5,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :page_number, null: true
       t.belongs_to :publication
       t.belongs_to :website
+      t.text :tags, array: true, default: []
       t.timestamps
     end
   end

@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   resources :recipes do
     get 'new_publication', on: :collection
+    post 'create_publication', on: :collection
   end
 
 
-  root 'static_pages#home'
+  root 'recipes#index'
 
 end

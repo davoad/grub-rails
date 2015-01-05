@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.order('LOWER(name)')
   end
 
   # GET /recipes/1
@@ -13,13 +13,6 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
-    @recipe.publication = Publication.new
-  end
-
-  def new_publication
-    respond_to do |format|
-      format.js
-    end
   end
 
   # GET /recipes/1/edit
@@ -29,7 +22,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   def create
     @recipe = Recipe.new(params_for_create)
-
+    puts @recipe.valid?
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created.'
     else
@@ -61,11 +54,11 @@ class RecipesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def params_for_update
-    params.require(:recipe).permit(:name)
+    params.require(:recipe).permit(:name, :page_number, :tag_list, :publication_id)
   end
 
   def params_for_create
-    params.require(:recipe).permit(:name, :page_number,
+    params.require(:recipe).permit(:name, :tag_list, :publication_id,  :page_number,
                                    publication_attributes: [:name, :author])
   end
 end

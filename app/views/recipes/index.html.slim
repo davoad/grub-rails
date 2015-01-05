@@ -1,0 +1,18 @@
+.row
+  h1 Recipes
+  = link_to 'New Recipe', new_recipe_path
+.row
+    - @recipes.each do |recipe|
+      h2 = link_to recipe.name, edit_recipe_path(recipe)
+      - if recipe.publication
+        div
+         i = "#{recipe.publication.name}, Page #{recipe.page_number}"
+      span> class="glyphicon glyphicon-time"
+      span> = recipe.created_at.strftime('%B %e, %Y')
+      - if recipe.tags.count > 0
+        .row
+          div.col-sm-12
+            span> class="glyphicon glyphicon-tags"
+            - recipe.tags.each do |tag|
+               span> class="label label-default" = tag
+      br

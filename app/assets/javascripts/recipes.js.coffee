@@ -1,3 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on "page:change", ->
+  $("#publication a.add_fields").data("association-insertion-position", "before").data "association-insertion-node", "this"
+  $("#publication").bind "cocoon:after-insert", ->
+    $("#publication_from_list").hide()
+    $("#publication a.add_fields").hide()
+    return
+
+  $("#publication").bind "cocoon:after-remove", ->
+    $("#publication_from_list").show()
+    $("#publication a.add_fields").show()
+    return
+
+  return

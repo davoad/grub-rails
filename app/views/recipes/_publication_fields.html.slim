@@ -1,0 +1,6 @@
+.nested-fields
+  h2 New publication
+  = f.input :name
+  = f.input :author
+  = f.input :edition
+  = link_to_remove_association "select existing publication", f
