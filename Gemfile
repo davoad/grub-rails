@@ -37,12 +37,12 @@ gem 'simple_form',
     branch: 'master'
 
 gem 'foreigner'
+gem 'pry'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.1'
   gem 'factory_girl_rails', '~> 4.2.1'
   gem 'rspec-collection_matchers', '~> 1.0.0'
-  gem 'pry'
   gem 'cane', require: false
   gem 'rubocop', require: false
   gem 'shoulda-matchers'
@@ -59,15 +59,6 @@ group :test do
   gem 'selenium-webdriver', '~> 2.39.0'
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+group :production do
+  gem 'puma'
+end
