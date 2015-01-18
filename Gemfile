@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2'
 gem 'bootstrap-sass', '~> 3.3.1'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 gem 'autoprefixer-rails'
 gem 'cocoon'
 gem 'pg'
@@ -30,11 +32,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-windowslive'
+
 # use simple form
-gem 'simple_form',
-    '~> 3.1.0.rc1',
-    github: 'plataformatec/simple_form',
-    branch: 'master'
+gem 'simple_form', '~> 3.1.0'
 
 gem 'foreigner'
 gem 'pry'
@@ -49,6 +53,7 @@ group :development, :test do
   gem 'webmock', require: false
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
+  gem 'dotenv-rails'
 end
 
 group :test do
