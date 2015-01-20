@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
             u.provider   = '#{provider}'
             u.first_name = #{infos[:first_name]}.presence || 'John'
             u.last_name  = #{infos[:last_name]}.presence  || 'Do'
-            u.password   = Devise.friendly_token[0,20]
+            u.encrypted_password   = Devise.friendly_token[0,20]
           end
         end
       "
