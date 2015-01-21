@@ -23,7 +23,6 @@ class RecipesController < ApplicationController
   # POST /recipes
   def create
     @recipe = Recipe.new(params_for_create)
-    puts @recipe.valid?
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created.'
     else
@@ -60,6 +59,6 @@ class RecipesController < ApplicationController
 
   def params_for_create
     params.require(:recipe).permit(:name, :tag_list, :publication_id,  :page_number,
-                                   publication_attributes: [:name, :author])
+                                   publication_attributes: [:name, :author, :edition])
   end
 end

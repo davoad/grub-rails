@@ -5,7 +5,7 @@
     = f.input :name
     #publication
       #publication_from_list
-        = f.association :publication, collection: Publication.order(:name), prompt: 'Choose an existing publication'
+        = f.association :publication, label_method: ->(p) {sprintf("%s%s", p.name, p.edition ? [' (',p.edition,')'].join : '')}, collection: Publication.order(:name), prompt: 'Choose an existing publication'
       = link_to_add_association 'add a new new publication', f, :publication
     = f.input :page_number
     = f.input :tag_list
