@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     OAUTH_INFOS.each do |provider, infos|
       class_eval %Q"
         def find_for_#{provider}(data, signed_in_resource=nil)
-          where(email: #{infos[:email]}).first_or_create do |u|
+          where(email: #{infos[:email]}).first do |u|
             u.provider   = '#{provider}'
             u.first_name = #{infos[:first_name]}.presence || 'John'
             u.last_name  = #{infos[:last_name]}.presence  || 'Do'
