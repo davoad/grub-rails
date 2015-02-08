@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 gem 'slim-rails'
+gem 'cells', '4.0.0.beta2'
+gem "cells-slim", github: 'trailblazer/cells-slim'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

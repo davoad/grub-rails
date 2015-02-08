@@ -6,7 +6,7 @@
       h2 = link_to recipe.name, edit_recipe_path(recipe)
       - if recipe.publication
         div
-          i = sprintf("%s%s, Page %s", recipe.publication.name, recipe.publication.edition ? [' (',recipe.publication.edition,')'].join : '', recipe.page_number)
+          i = cell(:recipe_summary, recipe)
       span> class="glyphicon glyphicon-time"
       span> = recipe.created_at.strftime('%B %e, %Y')
       - if recipe.tags.count > 0
