@@ -7,9 +7,10 @@ class PublicationSummaryCell < Cell::ViewModel
 
   property :name
   property :edition
+  property :author
 
   def summary
-    sprintf("%s%s", name, edition ? [' (',edition,')'].join : '')
+    sprintf("%s%s %s", name, edition ? [' (',edition,')'].join : '', author)
   end
 
 end
