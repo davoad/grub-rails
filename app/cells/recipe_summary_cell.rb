@@ -12,4 +12,8 @@ class RecipeSummaryCell < Cell::ViewModel
     sprintf("%s%s, Page %s", publication.name, publication.edition ? [' (', publication.edition,')'].join : '', page_number)
   end
 
+  def author
+    publication.author
+  end
+
 end
