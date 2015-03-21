@@ -1,29 +1,9 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Good Grub is a web application for keeping track of recipes. Features include:
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+- Store publication information about the recipe such as title, author and page number to make recipes easy to find.
+- Record the date a recipe was cooked.
+- Allow users to rate a recipe when it is cooked.
+- Tag recipes with details such as ingredients.
+- Search for recipes.
