@@ -119,16 +119,17 @@ RSpec.describe RecipesController, :type => :controller do
 
     describe 'PATCH update' do
       let(:existing_recipe) do
-        create(:recipe, name: 'My Recipe')
+        create(:recipe_with_publication, name: 'My Recipe')
       end
 
       describe 'with valid params' do
-        let(:publication) do
-          create(:publication)
+        let(:new_publication_name) { Faker::Lorem.characters(20)}
+        let(:new_publication) do
+          build(:publication, name: new_publication_name)
         end
 
         let(:updated_recipe_params) do
-          attributes_for(:recipe, name: 'New Name', page_number: 345, tag_list: 'yy, zz')
+          attributes_for(:recipe_with_publication, name: 'New Name', page_number: 345, tag_list: 'yy, zz', publication_id: existing_recipe.publication.id)
         end
 
         it 'updates the requested recipe' do
@@ -140,10 +141,11 @@ RSpec.describe RecipesController, :type => :controller do
         end
 
         it 'updates the recipe with a new publication' do
-          updated_recipe_params.merge!(publication_id: publication.id)
+          updated_recipe_params.merge!(publication_attributes: new_publication.attributes)
           patch :update, id: existing_recipe, recipe: updated_recipe_params
           existing_recipe.reload
-          expect(existing_recipe.publication_id).to eq publication.id
+          new_publication_id = Publication.find_by(name: new_publication_name).id
+          expect(existing_recipe.publication_id).to eq new_publication_id
         end
 
         it 'assigns the requested recipe as @recipe' do

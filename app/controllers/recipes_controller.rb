@@ -54,7 +54,8 @@ class RecipesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def params_for_update
-    params.require(:recipe).permit(:name, :page_number, :tag_list, :publication_id)
+    params.require(:recipe).permit(:name, :page_number, :tag_list, :publication_id,
+                                   publication_attributes: [:name, :author, :edition])
   end
 
   def params_for_create
