@@ -5,7 +5,7 @@
     - @recipes.each do |recipe|
       h2.h3 = link_to recipe.name, edit_recipe_path(recipe)
       - if recipe.publication
-          = cell(:recipe_summary, recipe)
+          = raw cell(:recipe_summary, recipe)
       span> class="glyphicon glyphicon-time"
       span> = recipe.created_at.strftime('%B %e, %Y')
       - if recipe.tags.count > 0
