@@ -1,5 +1,6 @@
 .row
-  h2 = link_to @recipe.name, edit_recipe_path(@recipe)
+  h1.h2
+    = link_to @recipe.name, edit_recipe_path(@recipe)
   - if @recipe.publication
     div
      i = cell(:recipe_summary, @recipe)
@@ -13,4 +14,4 @@
            span> class="label label-default" = tag
 
 br
-= link_to 'Back', recipes_path
+= link_to 'Back', recipes_path, class: 'btn btn-default'

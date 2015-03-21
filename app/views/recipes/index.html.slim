@@ -1,9 +1,9 @@
 .row
-  h1 Recipes
-  = link_to 'New Recipe', new_recipe_path
+  h1.h2 Recipes
+  = link_to 'New Recipe', new_recipe_path, class: 'btn btn-default'
 .row
     - @recipes.each do |recipe|
-      h2 = link_to recipe.name, edit_recipe_path(recipe)
+      h2.h3 = link_to recipe.name, edit_recipe_path(recipe)
       - if recipe.publication
         div
           i = cell(:recipe_summary, recipe)
@@ -16,3 +16,5 @@
             - recipe.tags.each do |tag|
                span> class="label label-default" = tag
       br
+.row
+  = link_to 'New Recipe', new_recipe_path, class: 'btn btn-default'
