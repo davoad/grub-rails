@@ -1,6 +1,6 @@
 .row
   h1.h2 Recipes
-  = link_to 'New Recipe', new_recipe_path, class: 'btn btn-default'
+  = link_to 'New Recipe', new_recipe_path, class: 'btn btn-info'
 .row
     - @recipes.each do |recipe|
       h2.h3 = link_to recipe.name, edit_recipe_path(recipe)
@@ -16,4 +16,4 @@
                span> class="label label-default" = tag
       br
 .row
-  = link_to 'New Recipe', new_recipe_path, class: 'btn btn-default'
+  = link_to 'New Recipe', new_recipe_path, class: 'btn btn-info'
