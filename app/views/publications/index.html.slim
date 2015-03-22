@@ -1,0 +1,12 @@
+.row
+  h1.h2 Publications
+  = link_to 'New Publication', new_publication_path, class: 'btn btn-info'
+.row
+    - @publications.each do |publication|
+        h2.h4 = link_to publication.name, edit_publication_path(publication)
+        div = publication.author 
+        - if publication.edition
+          div = publication.edition
+.row
+  br
+  = link_to 'New Publication', new_publication_path, class: 'btn btn-info'

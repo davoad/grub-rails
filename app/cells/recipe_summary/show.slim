@@ -1,5 +1,7 @@
 div = author
-div = summary
+div
+  = publication_link
+  span = sprintf(", Page %s", page_number)
 - if total_cooking_time > 0
     span> class="glyphicon glyphicon-time"
     span> = sprintf("%s minutes", total_cooking_time)

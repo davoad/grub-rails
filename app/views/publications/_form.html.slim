@@ -1,0 +1,9 @@
+= simple_form_for(@publication, html: { class: 'form-vertical' }, wrapper: :vertical_form) do |f|
+  = f.error_notification
+
+  #new_publication_inputs.form-inputs
+    = f.input :name
+    = f.input :author
+    = f.input :edition
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

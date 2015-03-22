@@ -1,0 +1,7 @@
+.row
+  h1.h2 = link_to @publication.name, edit_publication_path(@publication)
+  div = @publication.author 
+  div = @publication.edition
+  br
+.row
+  = link_to 'Back', publications_path, class: 'btn btn-info'
