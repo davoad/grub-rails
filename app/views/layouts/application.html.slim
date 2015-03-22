@@ -8,7 +8,22 @@ html
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
   body
-    header
+    nav class="navbar navbar-default"
+      div class="container-fluid"
+        div class="navbar-header"
+          button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-bar-content"
+            span.sr-only
+              Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          = link_to 'Good Grub', root_path, class: "navbar-brand"
+        div class="collapse navbar-collapse" id="nav-bar-content"
+          ul class="nav navbar-nav"
+            li
+              = link_to 'Recipes', recipes_path
+            li
+              = link_to 'Publications', publications_path
     main[role="main" class="container"]
       p#notice = notice
       p#alert = alert
