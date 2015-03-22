@@ -2,9 +2,17 @@
   h1.h2
     = link_to @recipe.name, edit_recipe_path(@recipe)
   - if @recipe.publication
-      = raw cell(:recipe_summary, @recipe)
-  span> class="glyphicon glyphicon-time"
-  span> = @recipe.created_at.strftime('%B %e, %Y')
+      = raw cell(:recipe_summary, @recipe).call(:author)
+      br
+      = raw cell(:recipe_summary, @recipe).call(:summary)
+  br
+  - if @recipe.preparation_time
+      span> class="glyphicon glyphicon-time"
+      span> = sprintf("%s minutes preparation", @recipe.preparation_time.to_i)
+      br
+  - if @recipe.cooking_time
+      span> class="glyphicon glyphicon-time"
+      span> = sprintf("%s minutes cooking", @recipe.cooking_time.to_i)
   - if @recipe.tags.count > 0
     .row
       div.col-sm-12

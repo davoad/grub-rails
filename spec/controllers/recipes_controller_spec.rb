@@ -66,6 +66,8 @@ RSpec.describe RecipesController, :type => :controller do
           new_recipe = assigns(:recipe).reload
           expect(new_recipe.name).to eq valid_attributes[:name]
           expect(new_recipe.page_number).to eq valid_attributes[:page_number]
+          expect(new_recipe.preparation_time).to eq valid_attributes[:preparation_time]
+          expect(new_recipe.cooking_time).to eq valid_attributes[:cooking_time]
           expect(new_recipe.tags).to eq valid_attributes[:tag_list].delete(' ').split(',')
         end
 
@@ -129,7 +131,7 @@ RSpec.describe RecipesController, :type => :controller do
         end
 
         let(:updated_recipe_params) do
-          attributes_for(:recipe_with_publication, name: 'New Name', page_number: 345, tag_list: 'yy, zz', publication_id: existing_recipe.publication.id)
+          attributes_for(:recipe_with_publication, name: 'New Name', page_number: 345, tag_list: 'yy, zz', publication_id: existing_recipe.publication.id, preparation_time: 12, cooking_time: 400)
         end
 
         it 'updates the requested recipe' do
@@ -137,6 +139,8 @@ RSpec.describe RecipesController, :type => :controller do
           existing_recipe.reload
           expect(existing_recipe.name).to eq 'New Name'
           expect(existing_recipe.page_number).to eq 345
+          expect(existing_recipe.preparation_time).to eq 12
+          expect(existing_recipe.cooking_time).to eq 400
           expect(existing_recipe.tags).to eq ['yy', 'zz']
         end
 

@@ -8,6 +8,8 @@
         = f.association :publication, label_method: ->(p) {cell(:publication_summary, p)}, collection: Publication.order(:name), prompt: 'Choose an existing publication'
       = link_to_add_association 'add a new publication', f, :publication
     = f.input :page_number
+    = f.input :preparation_time, hint: 'minutes'
+    = f.input :cooking_time, hint: 'minutes'
     = f.input :tag_list
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
