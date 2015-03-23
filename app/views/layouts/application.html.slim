@@ -24,6 +24,9 @@ html
               = link_to 'Recipes', recipes_path
             li
               = link_to 'Publications', publications_path
+          ul class="nav navbar-nav navbar-right"
+            li
+              = link_to 'Sign out', '/sign_out' 
     main[role="main" class="container"]
       p#notice = notice
       p#alert = alert
