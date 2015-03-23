@@ -4,7 +4,7 @@
   - if @recipe.publication
       = raw cell(:recipe_summary, @recipe).call(:author)
       br
-      = raw cell(:recipe_summary, @recipe).call(:summary)
+      = raw cell(:recipe_summary, @recipe).call(:publication_link)
   br
   - if @recipe.preparation_time
       span> class="glyphicon glyphicon-time"
@@ -20,5 +20,6 @@
         - @recipe.tags.each do |tag|
            span> class="label label-default" = tag
 
-br
-= link_to 'Back', recipes_path, class: 'btn btn-info'
+  br
+.row
+  = link_to 'Back', recipes_path, class: 'btn btn-info'
