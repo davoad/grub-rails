@@ -1,0 +1,9 @@
+= simple_form_for(@rating, html: { class: 'form-vertical' }, wrapper: :vertical_form) do |f|
+  = f.error_notification
+  = f.input :title
+  = f.input :value
+  = f.input :comments
+  = f.hidden_field :user_id
+  = f.hidden_field :recipe_id
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

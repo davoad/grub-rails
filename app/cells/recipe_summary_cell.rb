@@ -11,7 +11,9 @@ class RecipeSummaryCell < Cell::ViewModel
   property :cooking_time
 
   def publication_link
-        link_to sprintf("%s%s", publication.name, publication.edition ? [' (', publication.edition,')'].join : ''), edit_publication_path(publication)
+    edition =  publication.edition ? [' (', publication.edition, ')'].join : ''
+    link_text = format('%s%s', publication.name, edition)
+    link_to link_text, edit_publication_path(publication)
   end
 
   def author

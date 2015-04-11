@@ -19,7 +19,36 @@
         span> class="glyphicon glyphicon-tags"
         - @recipe.tags.each do |tag|
            span> class="label label-default" = tag
-
+  .ratings
+    h2.h3 Ratings
+    hr
+    .row.rating
+      .col-sm-2.well
+        span> class="score" = @recipe.ratings.average(:value) || 'N/A'
+        span stars
+        #rate-button
+          button class="btn btn-success"
+            span class="glyphicon glyphicon-pencil" Rate
+    br
+    #rating-form.hidden.row
+      .well
+        = simple_form_for(@recipe.rating_for_user(current_user.id), validate: true, html: { class: 'form-vertical' }, wrapper: :vertical_form) do |f|
+          = f.input :title
+          = f.input :value
+          = f.input :comments
+          = f.hidden_field :user_id
+          = f.hidden_field :recipe_id
+          = f.button :submit, class: 'btn btn-info'
+    #ratings-list
+      - @recipe.ratings.select { |r| r.persisted? }.each do |r|
+          .panel
+            strong>  = r.user.first_name
+            strong>  = r.user.last_name
+            span>  = r.value
+            span>  stars
+            div.lead  = r.title
+            div
+              i  = r.comments
   br
 .row
   = link_to 'Back', recipes_path, class: 'btn btn-info'

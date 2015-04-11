@@ -3,7 +3,7 @@
   = link_to 'New Recipe', new_recipe_path, class: 'btn btn-info'
 .row
     - @recipes.each do |recipe|
-      h2.h3 = link_to recipe.name, edit_recipe_path(recipe)
+      h2.h3 = link_to recipe.name, recipe_path(recipe)
       - if recipe.publication
           = raw cell(:recipe_summary, recipe)
       - if recipe.tags.count > 0
@@ -12,6 +12,9 @@
             span> class="glyphicon glyphicon-tags"
             - recipe.tags.each do |tag|
                span> class="label label-default" = tag
+      - if recipe.ratings.count > 0
+        span> = recipe.ratings.average(:value)
+        span stars
 .row
   br
   = link_to 'New Recipe', new_recipe_path, class: 'btn btn-info'

@@ -1,12 +1,13 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  PROVIDER_KIND_NAMES = {
-    google_oauth2: 'Google',
-    windowslive:   'Windows Live',
-  }.freeze
+module Users
+  class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    PROVIDER_KIND_NAMES = {
+      google_oauth2: 'Google',
+      windowslive:   'Windows Live'
+    }.freeze
 
-  User::OAUTH_INFOS.keys.each do |provider|
-    kind_name = PROVIDER_KIND_NAMES[provider]
-    class_eval %Q"
+    User::OAUTH_INFOS.keys.each do |provider|
+      kind_name = PROVIDER_KIND_NAMES[provider]
+      class_eval %"
       def #{provider}
         @user = User.find_for_#{provider}(request.env['omniauth.auth'], current_user)
 
@@ -18,6 +19,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           redirect_to new_user_session_url
         end
       end
-    "
+      "
+    end
   end
 end

@@ -6,6 +6,8 @@ RSpec.describe Recipe, :type => :model do
   it { should validate_numericality_of(:preparation_time) }
   it { should validate_numericality_of(:cooking_time) }
 
+  it { should have_many(:users).through(:ratings) }
+
   it { should belong_to(:publication) }
   it { should accept_nested_attributes_for :publication }
 

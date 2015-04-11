@@ -10,4 +10,8 @@ $(document).on "page:change", ->
     $("#publication a.add_fields").show()
     return
 
+  $("#rate-button").click ->
+    $("#rating-form").removeClass('hidden')
+    return
+
   return
