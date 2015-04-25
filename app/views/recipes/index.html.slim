@@ -1,5 +1,13 @@
 .row
   h1.h2 Recipes
+.row
+  = form_tag recipes_path, method: 'get', class: 'form-inline'
+    div.form-group
+      = label_tag :search, 'Search', class: 'sr-only'
+      = text_field_tag :search, params[:search], class: 'form-control'
+    = submit_tag 'Search', name: nil, class: 'btn'
+  br
+.row
   = link_to 'New Recipe', new_recipe_path, class: 'btn btn-info'
 .row
     - @recipes.each do |recipe|
@@ -17,4 +25,4 @@
         span stars
 .row
   br
-  = link_to 'New Recipe', new_recipe_path, class: 'btn btn-info'
+  = link_to 'New Recipe', new_recipe_path, class: 'btn btn-info' if @recipes.length > 0

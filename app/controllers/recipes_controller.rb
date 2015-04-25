@@ -4,7 +4,8 @@ class RecipesController < ApplicationController
 
   # GET /recipes
   def index
-    @recipes = Recipe.order('LOWER(name)')
+    # @recipes = Recipe.order('LOWER(name)')
+    @recipes = Recipe.text_search(params[:search])
   end
 
   # GET /recipes/1
