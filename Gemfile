@@ -45,6 +45,7 @@ gem 'simple_form', '~> 3.1.0'
 
 gem 'foreigner'
 gem 'pry'
+gem 'quiet_assets'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.1'
