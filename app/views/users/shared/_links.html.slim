@@ -19,7 +19,7 @@
     br
 
 - if devise_mapping.omniauthable?
-  = link_to user_windowslive_omniauth_authorize_path, class: "btn btn-block btn-social btn-microsoft"
+  = link_to user_windowslive_omniauth_authorize_path, class: "btn btn-block btn-social btn-microsoft", method: "post"
     i class="fa fa-windows"
     | Sign in with Microsoft
   br
