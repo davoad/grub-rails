@@ -1,0 +1,18 @@
+[44778] Puma starting in cluster mode...
+[44778] * Puma version: 5.6.5 (ruby 2.6.8-p205) ("Birdie's Version")
+[44778] *  Min threads: 0
+[44778] *  Max threads: 16
+[44778] *  Environment: development
+[44778] *   Master PID: 44778
+[44778] *      Workers: 1
+[44778] *     Restarts: (✔) hot (✔) phased
+[44778] * Listening on http://0.0.0.0:9292
+[44778] Use Ctrl-C to stop
+[44778] ! WARNING: Detected running cluster mode with 1 worker.
+[44778] ! Running Puma in cluster mode with a single worker is often a misconfiguration.
+[44778] ! Consider running Puma in single-mode (workers = 0) in order to reduce memory overhead.
+[44778] ! Set the `silence_single_worker_warning` option to silence this warning message.
+[44778] - Gracefully shutting down workers...
+[44787] Early termination of worker
+[44778] === puma shutdown: 2022-08-30 12:11:23 +1000 ===
+[44778] - Goodbye!
