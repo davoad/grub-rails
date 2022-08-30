@@ -19,10 +19,10 @@
     br
 
 - if devise_mapping.omniauthable?
-  = link_to user_omniauth_authorize_path(:windowslive), class: "btn btn-block btn-social btn-microsoft"
+  = link_to user_windowslive_omniauth_authorize_path, class: "btn btn-block btn-social btn-microsoft"
     i class="fa fa-windows"
     | Sign in with Microsoft
   br
-  = link_to user_omniauth_authorize_path(:google_oauth2), class: "btn btn-block btn-social btn-google-plus"
+  = link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-block btn-social btn-google-plus", method: "post"
     i class="fa fa-google-plus"
     | Sign in with Google
